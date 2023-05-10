@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import Navbar from "./components/Navbar";
+import "./App.css";
+import Products from "./components/Products";
 const App = () => {
   // -------------------------------------------------
   // DO NOT USE THE CODE BELOW FROM LINES 8 TO 18. THIS IS
@@ -7,23 +9,21 @@ const App = () => {
   // CORRECTLY. DELETE CODE WHEN COMPLETING YOUR TEST.
   const [response, setResponse] = useState("");
 
-  // call server to see if its running
   useEffect(() => {
     const getApiResponse = () => {
-      fetch("http://localhost:5000/")
-        .then((res) => res.text())
+      fetch("http://localhost:5000/api/products")
+        .then((res) => res.json())
         .then((res) => setResponse(res));
     };
     getApiResponse();
   }, []);
-  // -------------------------------------------------
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1> Prueba tecnica front Ecomsur 2021</h1>
-      <p>Borra esto y comienza aqui.</p>
-      {/* Check to see if express server is running correctly */}
-      <h5>{response}</h5>
+    <div
+      style={{ textAlign: "center", background: "#f9fbf2", height: "100vh" }}
+    >
+      <Navbar />
+      <Products productsData={response} />
     </div>
   );
 };
