@@ -5,21 +5,25 @@ const Card = ({
   price = "700",
   image = "http://bit.ly/2tMBBTd",
   handleAddToCart,
+  stock = true,
+  handleProductClick
 }) => {
   return (
     <div className="wrapper">
-      <img src={image} alt="product" />
+      <img onClick={handleProductClick} src={image} alt="product" />
       <div className="product-info">
         <div className="product-text">
           <h2 style={{ textAlign: "left", marginBottom: "5px" }}>{name}</h2>
-          {/* <span style={{ textAlign: "left", margin: "0px" }}> {brand} </span> */}
-          {/* <p style={{ fontSize: "14px" }}>{description}</p> */}
         </div>
         <div className="product-price-btn">
           <p>
             <span>{price}</span>$
           </p>
-          <button onClick={handleAddToCart} type="button">
+          <button
+            onClick={handleAddToCart}
+            disabled={stock === 0 ? true : false}
+            type="button"
+          >
             Comprar
           </button>
         </div>

@@ -20,10 +20,11 @@ const App = () => {
 
   return (
     <div
-      style={{ textAlign: "center", background: "#f9fbf2", height: "auto", paddingBottom: '30px' }}
+      style={{ textAlign: "center", background: "#f9fbf2", height: "auto", paddingBottom: '30px', paddingTop: '65px' }}
     >
       <Navbar />
       <Products productsData={response} />
+ 
     </div>
   );
 };

@@ -30,9 +30,9 @@ function Cart({ setQuantity }) {
           cart.map((item) => (
             <div key={item._id} className="cart-item">
               <p>{item.name}</p>
-              <p>{`Cantidad: ${item.quantity}`}</p>
+              <p>{`Total ${item.quantity}`}</p>
               <button onClick={() => handleRemoveFromCart(item)}>
-                Quitar
+                X
               </button>
             </div>
           ))
