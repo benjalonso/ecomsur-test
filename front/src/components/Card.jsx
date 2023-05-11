@@ -2,10 +2,9 @@ import React from "react";
 
 const Card = ({
   name = "Xiaomi 13 Pro",
-  description = "celular muy bueno, con buena cámara y bateria",
   price = "700",
-  brand = "Xiaomi",
-  image = "http://bit.ly/2tMBBTd"
+  image = "http://bit.ly/2tMBBTd",
+  handleAddToCart,
 }) => {
   return (
     <div className="wrapper">
@@ -20,7 +19,9 @@ const Card = ({
           <p>
             <span>{price}</span>$
           </p>
-          <button type="button">Comprar</button>
+          <button onClick={handleAddToCart} type="button">
+            Comprar
+          </button>
         </div>
       </div>
     </div>

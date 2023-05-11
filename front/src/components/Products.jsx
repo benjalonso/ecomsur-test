@@ -1,7 +1,15 @@
 import React from "react";
 import Card from "./Card";
+import { useDispatch } from "react-redux";
+import { increment } from '../features/cartSlice'
 
 const Products = ({ productsData }) => {
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item) => {
+    dispatch(increment(item));
+  };
 
   const showProducts = (data) => {
     if (Array.isArray(data)) {
@@ -14,6 +22,7 @@ const Products = ({ productsData }) => {
             name={product.name}
             description={product.description}
             price={product.price}
+            handleAddToCart={() => {handleAddToCart(product)}}
           />
         );
       });

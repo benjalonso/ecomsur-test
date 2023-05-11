@@ -5,6 +5,7 @@ import Cart from "./Cart.jsx";
 
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [quantity, setQuantity] = useState(0);
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -13,12 +14,17 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <h1 className="logo">Ecomsur</h1>
-
       <div className="cart-container" onClick={toggleCart}>
         {isCartOpen ? (
-          <RiShoppingCartFill className="cart" />
+          <>
+            <RiShoppingCartFill className="cart" />
+            <div className="badge">{quantity}</div>
+          </>
         ) : (
-          <RiShoppingCartLine className="cart" />
+          <>
+            <RiShoppingCartLine className="cart" />
+            <div className="badge">{quantity}</div>
+          </>
         )}
         <div
           className={`cart-dropdown ${isCartOpen ? "open" : ""} ${
@@ -26,7 +32,7 @@ const Navbar = () => {
           }`}
         >
           {" "}
-          <Cart />
+          <Cart setQuantity={setQuantity} />
         </div>
       </div>
     </div>

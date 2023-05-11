@@ -14,13 +14,13 @@ const App = () => {
       fetch("http://localhost:5000/api/products")
         .then((res) => res.json())
         .then((res) => setResponse(res));
-    };
+    };  
     getApiResponse();
   }, []);
 
   return (
     <div
-      style={{ textAlign: "center", background: "#f9fbf2", height: "100vh" }}
+      style={{ textAlign: "center", background: "#f9fbf2", height: "auto", paddingBottom: '30px' }}
     >
       <Navbar />
       <Products productsData={response} />
